@@ -17,7 +17,6 @@ export default function SchoolSelector({ onSelectSchool }) {
         const response = await fetch('/los_angeles_schools_with_lat_long.csv');
         const data = await response.text();
         
-        // Parse CSV manually (without papaparse for simplicity in this component)
         const rows = data.split('\n');
         const headers = rows[0].split(',');
         
@@ -47,7 +46,6 @@ export default function SchoolSelector({ onSelectSchool }) {
     
     fetchSchools();
     
-    // Add click outside listener to close dropdown
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target) &&
           searchInputRef.current && !searchInputRef.current.contains(event.target)) {
@@ -62,7 +60,6 @@ export default function SchoolSelector({ onSelectSchool }) {
   }, []);
 
   useEffect(() => {
-    // Filter schools based on search term
     if (searchTerm.trim() === '') {
       setFilteredSchools(schools);
       return;
@@ -74,7 +71,6 @@ export default function SchoolSelector({ onSelectSchool }) {
     
     setFilteredSchools(filtered);
     
-    // Open dropdown when searching
     if (searchTerm.trim() !== '') {
       setIsDropdownOpen(true);
     }

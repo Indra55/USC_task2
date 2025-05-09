@@ -1,0 +1,25 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+12/08/20,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,65.0,South Coast AQMD
+12/08/20,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,15.0,South Coast AQMD
+12/08/20,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,62.0,South Coast AQMD
+12/08/20,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.0,South Coast AQMD
+12/08/20,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,59.0,South Coast AQMD
+12/08/20,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,16.0,South Coast AQMD
+12/08/20,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,71.0,South Coast AQMD
+12/08/20,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.0,South Coast AQMD
+12/08/20,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,52.0,South Coast AQMD
+12/08/20,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.0,South Coast AQMD
+12/08/20,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,56.0,South Coast AQMD
+12/08/20,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,11.0,South Coast AQMD
+12/08/20,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,70.0,South Coast AQMD
+12/08/20,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,17.0,South Coast AQMD
+12/08/20,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,117.0,South Coast AQMD
+12/08/20,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,19.0,South Coast AQMD
+12/08/20,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,7.6,South Coast AQMD
+12/08/20,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.1,South Coast AQMD
+12/08/20,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,11.0,South Coast AQMD
+12/08/20,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,13.2,South Coast AQMD
+12/08/20,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.5,South Coast AQMD
+12/08/20,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,6.6,South Coast AQMD
+12/08/20,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.1,South Coast AQMD
+12/08/20,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,18.6,South Coast AQMD

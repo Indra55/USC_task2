@@ -1,0 +1,25 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+09/09/24,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,52.0,South Coast AQMD
+09/09/24,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,25.7,South Coast AQMD
+09/09/24,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,43.0,South Coast AQMD
+09/09/24,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,22.4,South Coast AQMD
+09/09/24,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,44.0,South Coast AQMD
+09/09/24,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,27.1,South Coast AQMD
+09/09/24,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,56.0,South Coast AQMD
+09/09/24,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,32.7,South Coast AQMD
+09/09/24,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,56.0,South Coast AQMD
+09/09/24,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,25.7,South Coast AQMD
+09/09/24,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,42.0,South Coast AQMD
+09/09/24,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,13.2,South Coast AQMD
+09/09/24,08:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,27.0,South Coast AQMD
+09/09/24,08:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,7.8,South Coast AQMD
+09/09/24,09:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,30.0,South Coast AQMD
+09/09/24,09:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,8.8,South Coast AQMD
+09/09/24,11:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,29.0,South Coast AQMD
+09/09/24,11:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,11.5,South Coast AQMD
+09/09/24,12:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,31.0,South Coast AQMD
+09/09/24,12:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,12.0,South Coast AQMD
+09/09/24,13:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,37.0,South Coast AQMD
+09/09/24,13:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,12.3,South Coast AQMD
+09/09/24,15:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,63.0,South Coast AQMD
+09/09/24,15:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,18.1,South Coast AQMD

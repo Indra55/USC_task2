@@ -1,0 +1,25 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+03/08/17,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,20.0,South Coast AQMD
+03/08/17,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,32.0,South Coast AQMD
+03/08/17,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,14.0,South Coast AQMD
+03/08/17,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,33.0,South Coast AQMD
+03/08/17,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,16.0,South Coast AQMD
+03/08/17,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,29.0,South Coast AQMD
+03/08/17,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,11.0,South Coast AQMD
+03/08/17,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,25.0,South Coast AQMD
+03/08/17,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,10.0,South Coast AQMD
+03/08/17,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,20.0,South Coast AQMD
+03/08/17,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,9.0,South Coast AQMD
+03/08/17,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,26.0,South Coast AQMD
+03/08/17,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,15.0,South Coast AQMD
+03/08/17,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,42.0,South Coast AQMD
+03/08/17,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.0,South Coast AQMD
+03/08/17,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,43.0,South Coast AQMD
+03/08/17,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,12.8,South Coast AQMD
+03/08/17,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,13.6,South Coast AQMD
+03/08/17,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,16.3,South Coast AQMD
+03/08/17,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,12.3,South Coast AQMD
+03/08/17,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,16.8,South Coast AQMD
+03/08/17,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,14.6,South Coast AQMD
+03/08/17,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,25.1,South Coast AQMD
+03/08/17,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,32.7,South Coast AQMD

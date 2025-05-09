@@ -1,0 +1,13 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+03/20/17,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,5.8,South Coast AQMD
+03/20/17,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,4.1,South Coast AQMD
+03/20/17,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,3.8,South Coast AQMD
+03/20/17,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.0,South Coast AQMD
+03/20/17,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.0,South Coast AQMD
+03/20/17,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,12.0,South Coast AQMD
+03/20/17,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,9.0,South Coast AQMD
+03/20/17,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,12.0,South Coast AQMD
+03/20/17,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,8.0,South Coast AQMD
+03/20/17,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,12.0,South Coast AQMD
+03/20/17,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,13.0,South Coast AQMD
+03/20/17,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,12.0,South Coast AQMD

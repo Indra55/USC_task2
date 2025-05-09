@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
 
 export default function YearRangePicker({ onYearRangeChange }) {
-  const currentYear = new Date().getFullYear();
-  const earliestYear = 2014; // Assuming data is available for the past decade
+  const maxYear = 2024; 
+  const earliestYear = 2014; 
   
   const [startYear, setStartYear] = useState(earliestYear);
-  const [endYear, setEndYear] = useState(currentYear);
+  const [endYear, setEndYear] = useState(maxYear);
   const [errors, setErrors] = useState({});
   
   const years = Array.from(
-    { length: currentYear - earliestYear + 1 },
+    { length: maxYear - earliestYear + 1 },
     (_, i) => earliestYear + i
   );
   
   useEffect(() => {
-    // Validate and notify parent component about year range changes
     if (startYear > endYear) {
       setErrors({ range: 'Start year cannot be after end year' });
       return;
@@ -24,7 +23,6 @@ export default function YearRangePicker({ onYearRangeChange }) {
     onYearRangeChange({ startYear, endYear });
   }, [startYear, endYear, onYearRangeChange]);
   
-  // Calculate duration for display
   const duration = endYear - startYear + 1;
   
   return (

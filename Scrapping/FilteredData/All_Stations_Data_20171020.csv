@@ -1,0 +1,25 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+10/20/17,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,27.0,South Coast AQMD
+10/20/17,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,14.0,South Coast AQMD
+10/20/17,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,26.0,South Coast AQMD
+10/20/17,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,13.0,South Coast AQMD
+10/20/17,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,28.0,South Coast AQMD
+10/20/17,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,13.0,South Coast AQMD
+10/20/17,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,35.0,South Coast AQMD
+10/20/17,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,19.0,South Coast AQMD
+10/20/17,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,38.0,South Coast AQMD
+10/20/17,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,14.0,South Coast AQMD
+10/20/17,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,29.0,South Coast AQMD
+10/20/17,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,14.0,South Coast AQMD
+10/20/17,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,41.0,South Coast AQMD
+10/20/17,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,18.0,South Coast AQMD
+10/20/17,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,41.0,South Coast AQMD
+10/20/17,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,16.0,South Coast AQMD
+10/20/17,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.8,South Coast AQMD
+10/20/17,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,5.4,South Coast AQMD
+10/20/17,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,6.6,South Coast AQMD
+10/20/17,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.8,South Coast AQMD
+10/20/17,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.5,South Coast AQMD
+10/20/17,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.1,South Coast AQMD
+10/20/17,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.6,South Coast AQMD
+10/20/17,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.3,South Coast AQMD

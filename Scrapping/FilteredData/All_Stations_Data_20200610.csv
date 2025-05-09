@@ -1,0 +1,4 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+06/10/20,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,33.0,South Coast AQMD
+06/10/20,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,10.0,South Coast AQMD
+06/10/20,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,21.5,South Coast AQMD

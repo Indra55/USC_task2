@@ -13,7 +13,6 @@ import {
 import { Line, Bar } from 'react-chartjs-2';
 import { analyzeWeatherCorrelation, filterWeatherData } from '../services/DataService';
 
-// Register ChartJS components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -46,10 +45,8 @@ export default function WeatherCorrelationDisplay({
   useEffect(() => {
     if (!pollutionData || !weatherData || !schoolName) return;
 
-    // Filter weather data by year range
     const filteredWeatherData = filterWeatherData(weatherData, yearRange.startYear, yearRange.endYear);
     
-    // Generate correlation analysis
     const data = analyzeWeatherCorrelation(pollutionData, filteredWeatherData);
     setCorrelationData(data);
   }, [pollutionData, weatherData, yearRange, schoolName]);
@@ -75,7 +72,6 @@ export default function WeatherCorrelationDisplay({
     );
   }
 
-  // Prepare data for temperature correlation chart
   const tempData = {
     labels: correlationData.temperatureCorrelation.map(item => `${item.temperature}°F`),
     datasets: [
@@ -90,7 +86,6 @@ export default function WeatherCorrelationDisplay({
     ]
   };
   
-  // Prepare data for weather condition chart
   const conditionData = {
     labels: correlationData.weatherConditionStats.map(item => item.condition),
     datasets: [
@@ -104,7 +99,6 @@ export default function WeatherCorrelationDisplay({
     ]
   };
 
-  // Options for line chart
   const lineOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -161,7 +155,6 @@ export default function WeatherCorrelationDisplay({
     }
   };
 
-  // Options for bar chart
   const barOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -226,7 +219,6 @@ export default function WeatherCorrelationDisplay({
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        {/* Rainy vs Non-Rainy Comparison */}
         <div className="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
           <h3 className="text-lg font-semibold mb-3 text-indigo-700 dark:text-indigo-300 flex items-center">
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -267,7 +259,6 @@ export default function WeatherCorrelationDisplay({
           </div>
         </div>
 
-        {/* Temperature vs PM2.5 Chart */}
         <div className="bg-white dark:bg-gray-800 p-5 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
           <h3 className="text-lg font-semibold mb-3 text-indigo-700 dark:text-indigo-300 flex items-center">
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -281,7 +272,6 @@ export default function WeatherCorrelationDisplay({
         </div>
       </div>
 
-      {/* Weather Condition Chart */}
       <div className="mb-8">
         <div className="bg-white dark:bg-gray-800 p-5 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
           <h3 className="text-lg font-semibold mb-3 text-indigo-700 dark:text-indigo-300 flex items-center">
@@ -296,7 +286,6 @@ export default function WeatherCorrelationDisplay({
         </div>
       </div>
 
-      {/* Weather Condition Table */}
       <div className="mt-8 bg-white dark:bg-gray-800 p-5 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
         <h3 className="text-lg font-semibold mb-4 text-indigo-700 dark:text-indigo-300 flex items-center">
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -1,0 +1,6 @@
+Date,Time,SiteCode,Location,Timezone,Unit,Agency,PM2.5,PM10
+03/15/24,08:00,840060374009,Long Beach Signal Hi,-8,UG/M3,South Coast AQMD,1.3,12.0
+03/15/24,09:00,840060374009,Long Beach Signal Hi,-8,UG/M3,South Coast AQMD,-0.1,8.0
+03/15/24,10:00,840060374009,Long Beach Signal Hi,-8,UG/M3,South Coast AQMD,1.5,5.0
+03/15/24,11:00,840060374009,Long Beach Signal Hi,-8,UG/M3,South Coast AQMD,0.8,9.0
+03/15/24,12:00,840060374009,Long Beach Signal Hi,-8,UG/M3,South Coast AQMD,2.9,17.0

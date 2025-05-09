@@ -1,6 +1,5 @@
 import Papa from 'papaparse';
 
-// AQI categories based on PM2.5 levels (in µg/m³)
 export const AQI_CATEGORIES = {
   GOOD: { min: 0, max: 12, label: 'Good' },
   MODERATE: { min: 12.1, max: 35.4, label: 'Moderate' },
@@ -10,10 +9,26 @@ export const AQI_CATEGORIES = {
   HAZARDOUS: { min: 250.5, max: 999, label: 'Hazardous' }
 };
 
-// Typical school hours (8am-3pm)
 const SCHOOL_HOURS = { start: 8, end: 15 };
 
-// Load schools data
+
+export const POLLUTION_CENTERS = [
+  {
+    name: 'Los Angeles - N. Mai',
+    latitude: 34.0655,
+    longitude: -118.2356,
+    siteCode: '60371103',
+    locationKeywords: ['Los Angeles', 'N. Mai']
+  },
+  {
+    name: 'South Long Beach',
+    latitude: 33.7701,
+    longitude: -118.1937,
+    siteCode: '60374004',
+    locationKeywords: ['Long Beach', 'South Long Beach']
+  }
+];
+
 export const loadSchools = async () => {
   const response = await fetch('/los_angeles_schools_with_lat_long.csv');
   const csvText = await response.text();
@@ -26,9 +41,8 @@ export const loadSchools = async () => {
   return data;
 };
 
-// Load pollution data
 export const loadPollutionData = async () => {
-  const response = await fetch('/Combined_Daily_Data.csv');
+  const response = await fetch('/pollution_data.csv');
   const csvText = await response.text();
   
   const { data } = Papa.parse(csvText, {
@@ -40,7 +54,6 @@ export const loadPollutionData = async () => {
   return data;
 };
 
-// Load weather data
 export const loadWeatherData = async () => {
   try {
     const response = await fetch('/weather_data_hourly.csv');
@@ -52,9 +65,7 @@ export const loadWeatherData = async () => {
       dynamicTyping: true
     });
     
-    // Process the weather data to make it more usable
     const processedData = data.map(record => {
-      // Parse the date
       const date = record.Date ? new Date(record.Date) : null;
       
       return {
@@ -75,30 +86,165 @@ export const loadWeatherData = async () => {
   }
 };
 
-// Filter pollution data for school hours and date range
-export const filterPollutionDataForSchool = (pollutionData, schoolLocation, startYear, endYear) => {
-  // Get nearest monitoring location based on school coordinates
-  // For simplicity, we'll use the default location in the data
-  // In a real app, you would calculate the nearest monitoring station to the school
+export const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  const toRadians = (degrees) => degrees * Math.PI / 180;
   
-  // Filter by year range and school hours
-  return pollutionData.filter(record => {
-    // Check if data has a valid datetime
-    if (!record.Datetime) return false;
-    
-    const recordDate = new Date(record.Datetime);
-    const year = recordDate.getFullYear();
-    const hour = recordDate.getHours();
-    
-    // Filter by year and school hours
-    return year >= startYear && 
-           year <= endYear && 
-           hour >= SCHOOL_HOURS.start && 
-           hour <= SCHOOL_HOURS.end;
-  });
+  const R = 6371; 
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  
+  const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c; 
 };
 
-// Filter weather data for date range
+export const findClosestPollutionCenter = (schoolLatitude, schoolLongitude) => {
+  if (!schoolLatitude || !schoolLongitude) {
+    return POLLUTION_CENTERS[0]; 
+  }
+  
+  let closestCenter = null;
+  let shortestDistance = Infinity;
+  
+  POLLUTION_CENTERS.forEach(center => {
+    const distance = calculateDistance(
+      schoolLatitude, 
+      schoolLongitude, 
+      center.latitude, 
+      center.longitude
+    );
+    
+    if (distance < shortestDistance) {
+      shortestDistance = distance;
+      closestCenter = center;
+    }
+  });
+  
+  return {
+    ...closestCenter,
+    distance: shortestDistance
+  };
+};
+
+export const filterPollutionDataForSchool = (pollutionData, schoolLocation, startYear, endYear) => {
+  const closestCenter = findClosestPollutionCenter(
+    parseFloat(schoolLocation.latitude),
+    parseFloat(schoolLocation.longitude)
+  );
+  
+  console.log('Closest center:', closestCenter);
+  console.log('School coordinates:', schoolLocation.latitude, schoolLocation.longitude);
+  
+  if (pollutionData && pollutionData.length > 0) {
+    console.log('Sample pollution record:', pollutionData[0]);
+    const siteCodes = new Set();
+    const locations = new Set();
+    pollutionData.forEach(record => {
+      if (record.SiteCode) siteCodes.add(record.SiteCode);
+      if (record.Location) locations.add(record.Location);
+    });
+    console.log('Unique SiteCodes in data:', Array.from(siteCodes));
+    console.log('Unique Locations in data:', Array.from(locations));
+  }
+  
+  const filterWithApproach = (approach) => {
+    let filtered = [];
+    
+    if (approach === 'coordinates') {
+      const MAX_DISTANCE_KM = 5; 
+      filtered = pollutionData.filter(record => {
+        if (!record.Datetime) return false;
+        
+        const recordDate = new Date(record.Datetime);
+        const year = recordDate.getFullYear();
+        const hour = recordDate.getHours();
+        
+        if (!(year >= startYear && year <= endYear && 
+             hour >= SCHOOL_HOURS.start && hour <= SCHOOL_HOURS.end)) {
+          return false;
+        }
+        
+        if (record.Latitude && record.Longitude) {
+          const distance = calculateDistance(
+            parseFloat(record.Latitude),
+            parseFloat(record.Longitude),
+            closestCenter.latitude,
+            closestCenter.longitude
+          );
+          
+          return distance <= MAX_DISTANCE_KM;
+        }
+        
+        return false;
+      });
+    } else if (approach === 'identifiers') {
+      filtered = pollutionData.filter(record => {
+        if (!record.Datetime) return false;
+        
+        const recordDate = new Date(record.Datetime);
+        const year = recordDate.getFullYear();
+        const hour = recordDate.getHours();
+        
+        if (!(year >= startYear && year <= endYear && 
+             hour >= SCHOOL_HOURS.start && hour <= SCHOOL_HOURS.end)) {
+          return false;
+        }
+        
+        const siteCodeMatches = 
+          String(record.SiteCode) === String(closestCenter.siteCode) || 
+          String(record.SiteCode).includes(String(closestCenter.siteCode)) ||
+          String(closestCenter.siteCode).includes(String(record.SiteCode));
+        
+        let locationMatches = false;
+        if (record.Location && closestCenter.locationKeywords) {
+          locationMatches = closestCenter.locationKeywords.some(keyword => 
+            record.Location.includes(keyword)
+          );
+        }
+        
+        return (siteCodeMatches || locationMatches);
+      });
+    } else if (approach === 'timeFiltersOnly') {
+      filtered = pollutionData.filter(record => {
+        if (!record.Datetime) return false;
+        
+        const recordDate = new Date(record.Datetime);
+        const year = recordDate.getFullYear();
+        const hour = recordDate.getHours();
+        
+        return year >= startYear && 
+               year <= endYear && 
+               hour >= SCHOOL_HOURS.start && 
+               hour <= SCHOOL_HOURS.end;
+      });
+    } else if (approach === 'noFilters') {
+      filtered = pollutionData.slice(0, 100); 
+    }
+    
+    return filtered;
+  };
+  
+  let finalFilteredData = [];
+  const approaches = ['coordinates', 'identifiers', 'timeFiltersOnly', 'noFilters'];
+  
+  for (const approach of approaches) {
+    finalFilteredData = filterWithApproach(approach);
+    console.log(`Filtered data count (${approach}):`, finalFilteredData.length);
+    
+    if (finalFilteredData.length > 0) {
+      console.log(`Using approach: ${approach}`);
+      console.log('First filtered record:', finalFilteredData[0]);
+      break;
+    }
+  }
+  
+  return finalFilteredData;
+};
+
 export const filterWeatherData = (weatherData, startYear, endYear) => {
   return weatherData.filter(record => {
     if (!record.year) return false;
@@ -106,7 +252,6 @@ export const filterWeatherData = (weatherData, startYear, endYear) => {
   });
 };
 
-// Calculate AQI category for a PM2.5 value
 export const getAQICategory = (pm25) => {
   if (pm25 <= AQI_CATEGORIES.GOOD.max) return AQI_CATEGORIES.GOOD;
   if (pm25 <= AQI_CATEGORIES.MODERATE.max) return AQI_CATEGORIES.MODERATE;
@@ -116,7 +261,6 @@ export const getAQICategory = (pm25) => {
   return AQI_CATEGORIES.HAZARDOUS;
 };
 
-// Analyze pollution data for a school
 export const analyzePollutionData = (filteredData) => {
   if (!filteredData || filteredData.length === 0) {
     return {
@@ -134,12 +278,10 @@ export const analyzePollutionData = (filteredData) => {
     };
   }
 
-  // Calculate averages
-  const pm25Sum = filteredData.reduce((sum, record) => sum + (record.PM2_5 || record.PM2_5 || record['PM2.5'] || 0), 0);
+  const pm25Sum = filteredData.reduce((sum, record) => sum + (record['PM2.5'] || 0), 0);
   const pm10Sum = filteredData.reduce((sum, record) => sum + (record.PM10 || 0), 0);
   
-  // Find min and max
-  const pm25Values = filteredData.map(record => record.PM2_5 || record.PM2_5 || record['PM2.5'] || 0);
+  const pm25Values = filteredData.map(record => record['PM2.5'] || 0);
   const pm10Values = filteredData.map(record => record.PM10 || 0);
   
   const maxPM25 = Math.max(...pm25Values);
@@ -147,20 +289,18 @@ export const analyzePollutionData = (filteredData) => {
   const minPM25 = Math.min(...pm25Values.filter(val => val > 0));
   const minPM10 = Math.min(...pm10Values.filter(val => val > 0));
   
-  // Count days in each AQI category
   const daysInCategories = {};
   Object.keys(AQI_CATEGORIES).forEach(category => {
     daysInCategories[category] = 0;
   });
   
-  // Track dates we've already counted to avoid counting the same day multiple times
   const countedDates = new Set();
   
   filteredData.forEach(record => {
     if (!record.Datetime) return;
     
-    const pm25 = record.PM2_5 || record.PM2_5 || record['PM2.5'] || 0;
-    const date = record.Datetime.split(' ')[0]; // Get just the date part
+    const pm25 = record['PM2.5'] || 0;
+    const date = record.Datetime.split(' ')[0];  
     
     if (!countedDates.has(date)) {
       countedDates.add(date);
@@ -175,14 +315,14 @@ export const analyzePollutionData = (filteredData) => {
     }
   });
   
-  // Find days with highest pollution
+   
   const dailyMaxPM25 = {};
   
   filteredData.forEach(record => {
     if (!record.Datetime) return;
     
     const date = record.Datetime.split(' ')[0];
-    const pm25 = record.PM2_5 || record.PM2_5 || record['PM2.5'] || 0;
+    const pm25 = record['PM2.5'] || 0;
     
     if (!dailyMaxPM25[date] || pm25 > dailyMaxPM25[date].pm25) {
       dailyMaxPM25[date] = {
@@ -209,7 +349,6 @@ export const analyzePollutionData = (filteredData) => {
   };
 };
 
-// Analyze weather correlation with pollution data
 export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
   if (!pollutionData || !weatherData || pollutionData.length === 0 || weatherData.length === 0) {
     return {
@@ -220,13 +359,12 @@ export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
     };
   }
 
-  // Group pollution data by date
   const pollutionByDate = {};
   pollutionData.forEach(record => {
     if (!record.Datetime) return;
     
-    const date = record.Datetime.split(' ')[0]; // Get just the date part
-    const pm25 = record.PM2_5 || record.PM2_5 || record['PM2.5'] || 0;
+    const date = record.Datetime.split(' ')[0]; 
+    const pm25 = record['PM2.5'] || 0;
     
     if (!pollutionByDate[date]) {
       pollutionByDate[date] = {
@@ -238,19 +376,16 @@ export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
     pollutionByDate[date].pm25Values.push(pm25);
   });
   
-  // Calculate average PM2.5 for each date
   Object.keys(pollutionByDate).forEach(date => {
     const values = pollutionByDate[date].pm25Values;
     pollutionByDate[date].avgPM25 = values.reduce((sum, val) => sum + val, 0) / values.length;
   });
   
-  // Categorize by weather condition
   const rainyDaysPM25 = [];
   const nonRainyDaysPM25 = [];
   const weatherConditionStats = {};
   const temperatureRanges = [];
   
-  // Process weather data
   weatherData.forEach(weatherRecord => {
     if (!weatherRecord.date) return;
     
@@ -258,14 +393,12 @@ export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
     const pollutionForDate = pollutionByDate[dateString];
     
     if (pollutionForDate) {
-      // Process rainy vs non-rainy days
       if (weatherRecord.isRainy) {
         rainyDaysPM25.push(pollutionForDate.avgPM25);
       } else {
         nonRainyDaysPM25.push(pollutionForDate.avgPM25);
       }
       
-      // Process by weather condition
       const condition = weatherRecord.condition || 'Unknown';
       if (!weatherConditionStats[condition]) {
         weatherConditionStats[condition] = {
@@ -279,7 +412,6 @@ export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
       weatherConditionStats[condition].days++;
       weatherConditionStats[condition].totalPM25 += pollutionForDate.avgPM25;
       
-      // Process by temperature range
       const temp = weatherRecord.temperature;
       if (typeof temp === 'number') {
         temperatureRanges.push({
@@ -290,7 +422,6 @@ export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
     }
   });
   
-  // Calculate averages for weather conditions
   Object.keys(weatherConditionStats).forEach(condition => {
     const stats = weatherConditionStats[condition];
     if (stats.days > 0) {
@@ -298,7 +429,6 @@ export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
     }
   });
   
-  // Sort temperature data for correlation analysis
   temperatureRanges.sort((a, b) => a.temperature - b.temperature);
   
   return {
@@ -312,7 +442,6 @@ export const analyzeWeatherCorrelation = (pollutionData, weatherData) => {
   };
 };
 
-// Analyze yearly pollution trends
 export const analyzeYearlyTrends = (pollutionData, startYear, endYear) => {
   if (!pollutionData || pollutionData.length === 0) {
     return {
@@ -322,46 +451,39 @@ export const analyzeYearlyTrends = (pollutionData, startYear, endYear) => {
     };
   }
 
-  // Group data by year
   const yearlyData = {};
   
-  // Initialize data structure for each year in the range
   for (let year = startYear; year <= endYear; year++) {
     yearlyData[year] = {
       year,
       pm25Values: [],
       pm10Values: [],
-      unhealthyDays: new Set() // Use Set to avoid counting the same day twice
+      unhealthyDays: new Set() 
     };
   }
   
-  // Collect data for each year
   pollutionData.forEach(record => {
     if (!record.Datetime) return;
     
     const recordDate = new Date(record.Datetime);
     const year = recordDate.getFullYear();
     
-    // Skip if outside our year range
     if (year < startYear || year > endYear) return;
     
-    const pm25 = record.PM2_5 || record.PM2_5 || record['PM2.5'] || 0;
+    const pm25 = record['PM2.5'] || 0;
     const pm10 = record.PM10 || 0;
-    const date = record.Datetime.split(' ')[0]; // Get just the date part
+    const date = record.Datetime.split(' ')[0]; 
     
-    // Add to yearly data
     if (yearlyData[year]) {
       yearlyData[year].pm25Values.push(pm25);
       yearlyData[year].pm10Values.push(pm10);
       
-      // Check if unhealthy
       if (pm25 > AQI_CATEGORIES.UNHEALTHY_SENSITIVE.min) {
         yearlyData[year].unhealthyDays.add(date);
       }
     }
   });
   
-  // Calculate yearly averages and unhealthy days count
   const yearlyAverages = [];
   const yearlyUnhealthyDays = [];
   
@@ -390,15 +512,12 @@ export const analyzeYearlyTrends = (pollutionData, startYear, endYear) => {
     }
   });
   
-  // Sort by year
   yearlyAverages.sort((a, b) => a.year - b.year);
   yearlyUnhealthyDays.sort((a, b) => a.year - b.year);
   
-  // Calculate trend (simple linear regression)
   let trend = 0;
   
   if (yearlyAverages.length > 1) {
-    // Simple linear regression to calculate trend
     const n = yearlyAverages.length;
     const years = yearlyAverages.map(d => d.year);
     const pm25Values = yearlyAverages.map(d => d.avgPM25);
@@ -408,10 +527,8 @@ export const analyzeYearlyTrends = (pollutionData, startYear, endYear) => {
     const sumXY = years.reduce((sum, x, i) => sum + x * pm25Values[i], 0);
     const sumX2 = years.reduce((sum, x) => sum + x * x, 0);
     
-    // Slope calculation (change per year)
     trend = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
     
-    // Round to prevent floating point issues
     trend = Math.round(trend * 1000) / 1000;
   }
   

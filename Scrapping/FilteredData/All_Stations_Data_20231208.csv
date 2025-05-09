@@ -1,0 +1,33 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+12/08/23,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,19.0,South Coast AQMD
+12/08/23,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,8.8,South Coast AQMD
+12/08/23,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,22.0,South Coast AQMD
+12/08/23,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,7.9,South Coast AQMD
+12/08/23,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,21.0,South Coast AQMD
+12/08/23,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,9.6,South Coast AQMD
+12/08/23,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,26.0,South Coast AQMD
+12/08/23,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,13.9,South Coast AQMD
+12/08/23,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,35.0,South Coast AQMD
+12/08/23,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,20.3,South Coast AQMD
+12/08/23,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,28.0,South Coast AQMD
+12/08/23,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.2,South Coast AQMD
+12/08/23,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,28.0,South Coast AQMD
+12/08/23,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,10.7,South Coast AQMD
+12/08/23,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,31.0,South Coast AQMD
+12/08/23,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,8.3,South Coast AQMD
+12/08/23,08:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,42.0,South Coast AQMD
+12/08/23,08:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,28.2,South Coast AQMD
+12/08/23,09:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,29.0,South Coast AQMD
+12/08/23,09:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,14.0,South Coast AQMD
+12/08/23,10:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,28.0,South Coast AQMD
+12/08/23,10:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,16.7,South Coast AQMD
+12/08/23,11:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,25.0,South Coast AQMD
+12/08/23,11:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,15.9,South Coast AQMD
+12/08/23,12:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,25.0,South Coast AQMD
+12/08/23,12:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,10.5,South Coast AQMD
+12/08/23,13:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,25.0,South Coast AQMD
+12/08/23,13:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,13.5,South Coast AQMD
+12/08/23,14:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,24.0,South Coast AQMD
+12/08/23,14:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,12.0,South Coast AQMD
+12/08/23,15:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,33.0,South Coast AQMD
+12/08/23,15:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,10.6,South Coast AQMD

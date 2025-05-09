@@ -13,7 +13,6 @@ import {
 import { Line, Bar } from 'react-chartjs-2';
 import { analyzeYearlyTrends } from '../services/DataService';
 
-// Register ChartJS components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -45,7 +44,6 @@ export default function YearlyTrendsDisplay({
   useEffect(() => {
     if (!pollutionData || !schoolName) return;
 
-    // Generate yearly trends analysis
     const data = analyzeYearlyTrends(pollutionData, yearRange.startYear, yearRange.endYear);
     setTrendsData(data);
   }, [pollutionData, yearRange, schoolName]);
@@ -71,7 +69,6 @@ export default function YearlyTrendsDisplay({
     );
   }
 
-  // Prepare data for yearly PM2.5 trends chart
   const yearlyTrendsData = {
     labels: trendsData.yearlyAverages.map(item => item.year.toString()),
     datasets: [
@@ -94,7 +91,6 @@ export default function YearlyTrendsDisplay({
     ]
   };
   
-  // Prepare data for yearly days in unhealthy categories chart
   const unhealthyDaysData = {
     labels: trendsData.yearlyUnhealthyDays.map(item => item.year.toString()),
     datasets: [
@@ -108,7 +104,17 @@ export default function YearlyTrendsDisplay({
     ]
   };
 
-  // Options for line chart
+  const customTooltipOptions = {
+    backgroundColor: chartTheme.tooltipBackground,
+    titleColor: chartTheme.tooltipText,
+    bodyColor: chartTheme.tooltipText,
+    titleFont: { size: 14 },
+    bodyFont: { size: 13 },
+    padding: 10,
+    cornerRadius: 4,
+    displayColors: true
+  };
+
   const lineOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -126,15 +132,7 @@ export default function YearlyTrendsDisplay({
         font: { size: 14, weight: 'bold' },
         color: chartTheme.text
       },
-      tooltip: {
-        backgroundColor: chartTheme.tooltipBackground,
-        titleColor: chartTheme.tooltipText,
-        bodyColor: chartTheme.tooltipText,
-        titleFont: { size: 14 },
-        bodyFont: { size: 13 },
-        padding: 10,
-        cornerRadius: 4
-      }
+      tooltip: customTooltipOptions
     },
     scales: {
       x: {
@@ -163,7 +161,6 @@ export default function YearlyTrendsDisplay({
     }
   };
 
-  // Options for bar chart
   const barOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -226,7 +223,6 @@ export default function YearlyTrendsDisplay({
       </p>
 
       <div className="grid grid-cols-1 gap-8 mb-8">
-        {/* Yearly Trends Line Chart */}
         <div className="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
           <h3 className="text-lg font-semibold mb-2 text-indigo-700 dark:text-indigo-300">
             Annual Average Pollution Levels
@@ -265,13 +261,12 @@ export default function YearlyTrendsDisplay({
           )}
         </div>
         
-        {/* Unhealthy Days Bar Chart */}
         <div className="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
           <h3 className="text-lg font-semibold mb-2 text-indigo-700 dark:text-indigo-300">
             Unhealthy Air Quality Days by Year
           </h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-            Number of school days each year with unhealthy air quality (PM2.5 > 35.5 µg/m³)
+          Number of school days each year with unhealthy air quality (PM2.5 &gt; 35.5 µg/m³)
           </p>
           <div className="h-80 mt-4">
             <Bar data={unhealthyDaysData} options={barOptions} />
@@ -279,7 +274,6 @@ export default function YearlyTrendsDisplay({
         </div>
       </div>
       
-      {/* Years Summary Table */}
       <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
           <thead className="bg-gray-50 dark:bg-gray-800">

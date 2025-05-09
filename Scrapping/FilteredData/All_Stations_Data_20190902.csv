@@ -1,0 +1,5 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+09/02/19,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,35.0,South Coast AQMD
+09/02/19,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,34.0,South Coast AQMD
+09/02/19,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.6,South Coast AQMD
+09/02/19,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,16.9,South Coast AQMD

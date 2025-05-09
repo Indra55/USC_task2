@@ -1,0 +1,38 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+03/18/22,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,27.0,South Coast AQMD
+03/18/22,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.5,South Coast AQMD
+03/18/22,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,31.0,South Coast AQMD
+03/18/22,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.8,South Coast AQMD
+03/18/22,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,29.0,South Coast AQMD
+03/18/22,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,11.3,South Coast AQMD
+03/18/22,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,32.0,South Coast AQMD
+03/18/22,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,11.3,South Coast AQMD
+03/18/22,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,35.0,South Coast AQMD
+03/18/22,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,9.6,South Coast AQMD
+03/18/22,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,38.0,South Coast AQMD
+03/18/22,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,11.1,South Coast AQMD
+03/18/22,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,44.0,South Coast AQMD
+03/18/22,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,19.8,South Coast AQMD
+03/18/22,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,19.8,South Coast AQMD
+03/18/22,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,16.9,South Coast AQMD
+03/18/22,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,15.9,South Coast AQMD
+03/18/22,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,14.9,South Coast AQMD
+03/18/22,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,12.7,South Coast AQMD
+03/18/22,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,16.4,South Coast AQMD
+03/18/22,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,19.1,South Coast AQMD
+03/18/22,08:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,31.0,South Coast AQMD
+03/18/22,08:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,16.2,South Coast AQMD
+03/18/22,09:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,36.0,South Coast AQMD
+03/18/22,09:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,13.5,South Coast AQMD
+03/18/22,10:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,34.0,South Coast AQMD
+03/18/22,10:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,14.7,South Coast AQMD
+03/18/22,11:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,60.0,South Coast AQMD
+03/18/22,11:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,17.2,South Coast AQMD
+03/18/22,12:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,46.0,South Coast AQMD
+03/18/22,12:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,14.7,South Coast AQMD
+03/18/22,13:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,32.0,South Coast AQMD
+03/18/22,13:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,7.6,South Coast AQMD
+03/18/22,14:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,46.0,South Coast AQMD
+03/18/22,14:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,12.3,South Coast AQMD
+03/18/22,15:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,44.0,South Coast AQMD
+03/18/22,15:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,16.2,South Coast AQMD

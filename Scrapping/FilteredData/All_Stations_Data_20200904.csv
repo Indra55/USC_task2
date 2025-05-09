@@ -1,0 +1,25 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+09/04/20,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,35.0,South Coast AQMD
+09/04/20,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,17.0,South Coast AQMD
+09/04/20,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,37.0,South Coast AQMD
+09/04/20,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,21.0,South Coast AQMD
+09/04/20,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,38.0,South Coast AQMD
+09/04/20,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,21.0,South Coast AQMD
+09/04/20,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,40.0,South Coast AQMD
+09/04/20,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,21.0,South Coast AQMD
+09/04/20,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,38.0,South Coast AQMD
+09/04/20,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,23.0,South Coast AQMD
+09/04/20,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,47.0,South Coast AQMD
+09/04/20,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,21.0,South Coast AQMD
+09/04/20,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,48.0,South Coast AQMD
+09/04/20,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,22.0,South Coast AQMD
+09/04/20,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,52.0,South Coast AQMD
+09/04/20,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,28.0,South Coast AQMD
+09/04/20,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,18.8,South Coast AQMD
+09/04/20,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,21.3,South Coast AQMD
+09/04/20,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,21.3,South Coast AQMD
+09/04/20,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,20.5,South Coast AQMD
+09/04/20,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,13.6,South Coast AQMD
+09/04/20,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,18.6,South Coast AQMD
+09/04/20,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,17.3,South Coast AQMD
+09/04/20,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,19.6,South Coast AQMD

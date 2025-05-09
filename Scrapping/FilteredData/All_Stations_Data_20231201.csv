@@ -1,0 +1,9 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+12/01/23,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,15.0,South Coast AQMD
+12/01/23,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,5.3,South Coast AQMD
+12/01/23,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,12.0,South Coast AQMD
+12/01/23,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,5.0,South Coast AQMD
+12/01/23,13:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,13.0,South Coast AQMD
+12/01/23,13:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,4.7,South Coast AQMD
+12/01/23,15:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,27.0,South Coast AQMD
+12/01/23,15:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,5.9,South Coast AQMD

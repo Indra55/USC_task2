@@ -1,0 +1,25 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+10/19/20,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,21.0,South Coast AQMD
+10/19/20,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,11.0,South Coast AQMD
+10/19/20,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,18.0,South Coast AQMD
+10/19/20,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,11.0,South Coast AQMD
+10/19/20,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,30.0,South Coast AQMD
+10/19/20,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,17.0,South Coast AQMD
+10/19/20,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,35.0,South Coast AQMD
+10/19/20,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,21.0,South Coast AQMD
+10/19/20,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,38.0,South Coast AQMD
+10/19/20,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,22.0,South Coast AQMD
+10/19/20,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,40.0,South Coast AQMD
+10/19/20,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,27.0,South Coast AQMD
+10/19/20,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,47.0,South Coast AQMD
+10/19/20,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,28.0,South Coast AQMD
+10/19/20,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,57.0,South Coast AQMD
+10/19/20,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,29.0,South Coast AQMD
+10/19/20,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.8,South Coast AQMD
+10/19/20,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.3,South Coast AQMD
+10/19/20,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.8,South Coast AQMD
+10/19/20,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,19.0,South Coast AQMD
+10/19/20,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,18.8,South Coast AQMD
+10/19/20,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,19.8,South Coast AQMD
+10/19/20,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,20.3,South Coast AQMD
+10/19/20,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,21.3,South Coast AQMD

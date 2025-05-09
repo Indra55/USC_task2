@@ -1,7 +1,6 @@
 import React from 'react';
 import { AQI_CATEGORIES } from '../services/DataService';
 
-// Colors for AQI categories
 const AQI_COLORS = {
   GOOD: '#00e400',
   MODERATE: '#ffff00',
@@ -49,10 +48,8 @@ export default function StatsDashboard({
     highestPollutionDays
   } = analyticsData;
 
-  // Calculate total days analyzed
   const totalDays = Object.values(daysInCategories).reduce((acc, count) => acc + count, 0);
   
-  // Calculate percentage of days in each category
   const categoryPercentages = {};
   Object.keys(daysInCategories).forEach(category => {
     categoryPercentages[category] = totalDays > 0 
@@ -60,7 +57,6 @@ export default function StatsDashboard({
       : 0;
   });
   
-  // Find most common AQI category
   let mostCommonCategory = null;
   let highestDayCount = 0;
   
@@ -71,7 +67,6 @@ export default function StatsDashboard({
     }
   });
   
-  // Get the AQI category for the average PM2.5 value
   const getAveragePM25Category = () => {
     for (const category in AQI_CATEGORIES) {
       const { min, max } = AQI_CATEGORIES[category];
@@ -84,7 +79,6 @@ export default function StatsDashboard({
   
   const averagePM25Category = getAveragePM25Category();
   
-  // Determine overall air quality assessment
   const getAirQualityAssessment = () => {
     if (
       mostCommonCategory === 'GOOD' ||
@@ -132,9 +126,17 @@ export default function StatsDashboard({
   
   const airQualityAssessment = getAirQualityAssessment();
   
-  // Format a number to a fixed number of decimal places
   const formatNumber = (num, decimals = 1) => {
     return Number.isFinite(num) ? num.toFixed(decimals) : 'N/A';
+  };
+
+  const determineTextColor = (category) => {
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    
+    if (!isDarkMode && (category === 'GOOD' || category === 'MODERATE')) {
+      return '#333'; 
+    }
+    return '#fff';
   };
 
   return (
@@ -151,7 +153,6 @@ export default function StatsDashboard({
         </p>
       </div>
       
-      {/* Overall Assessment Card */}
       <div className="p-6 border-b border-gray-200 dark:border-gray-700">
         <h3 className="text-lg font-medium mb-4 text-gray-700 dark:text-gray-300">
           Overall Assessment
@@ -177,7 +178,6 @@ export default function StatsDashboard({
         </div>
       </div>
       
-      {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6 border-b border-gray-200 dark:border-gray-700">
         <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
           <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">Average PM2.5</h4>
@@ -191,7 +191,7 @@ export default function StatsDashboard({
             className="mt-1 text-xs inline-flex items-center px-2 py-0.5 rounded-full"
             style={{
               backgroundColor: `${AQI_COLORS[averagePM25Category]}40`,
-              color: averagePM25Category === 'MODERATE' ? '#000' : '#fff'
+              color: determineTextColor(averagePM25Category)
             }}
           >
             {AQI_CATEGORIES[averagePM25Category]?.label || 'N/A'}
@@ -232,7 +232,6 @@ export default function StatsDashboard({
         </div>
       </div>
       
-      {/* AQI Categories Distribution */}
       <div className="p-6">
         <h3 className="text-lg font-medium mb-4 text-gray-700 dark:text-gray-300">
           AQI Category Distribution

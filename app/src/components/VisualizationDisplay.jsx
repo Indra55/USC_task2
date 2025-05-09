@@ -16,7 +16,6 @@ import {
 import { Bar, Pie, Line, Radar, Scatter } from 'react-chartjs-2';
 import { AQI_CATEGORIES } from '../services/DataService';
 
-// Register ChartJS components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -31,15 +30,24 @@ ChartJS.register(
   Legend
 );
 
-// Colors for AQI categories
 const AQI_COLORS = {
-  GOOD: '#00e400',
-  MODERATE: '#ffff00',
-  UNHEALTHY_SENSITIVE: '#ff7e00',
-  UNHEALTHY: '#ff0000',
-  VERY_UNHEALTHY: '#99004c',
-  HAZARDOUS: '#7e0023'
+  GOOD: '#00c000',           
+  MODERATE: '#d6c000',       
+  UNHEALTHY_SENSITIVE: '#ff7e00', 
+  UNHEALTHY: '#ff0000',      
+  VERY_UNHEALTHY: '#99004c', 
+  HAZARDOUS: '#7e0023'      
 };
+
+function getCategoryTextColor(category) {
+  const isDarkMode = document.documentElement.classList.contains('dark');
+  
+  if (!isDarkMode && (category === 'GOOD' || category === 'MODERATE')) {
+    return '#333'; 
+  }
+  
+  return '#fff';
+}
 
 export default function VisualizationDisplay({ 
   schoolName, 
@@ -59,16 +67,13 @@ export default function VisualizationDisplay({
     tooltipText: isDarkMode ? '#1f2937' : '#ffffff',
   };
   
-  // Observe theme changes
   const observer = useRef(null);
   
   useEffect(() => {
-    // Set up observer to detect dark mode changes
     if (!observer.current) {
       observer.current = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (mutation.attributeName === 'class') {
-            // Force chart rerender by setting a small timeout
             setTimeout(() => {
               window.dispatchEvent(new Event('resize'));
             }, 10);
@@ -76,12 +81,10 @@ export default function VisualizationDisplay({
         });
       });
 
-      // Start observing the document element for class changes (dark mode)
       observer.current.observe(document.documentElement, { attributes: true });
     }
     
     return () => {
-      // Clean up
       observer.current?.disconnect();
     };
   }, []);
@@ -114,7 +117,6 @@ export default function VisualizationDisplay({
     highestPollutionDays
   } = analyticsData;
   
-  // Prepare data for AQI category chart
   const categoryChartData = {
     labels: Object.keys(daysInCategories).map(key => AQI_CATEGORIES[key].label),
     datasets: [
@@ -128,7 +130,6 @@ export default function VisualizationDisplay({
     ]
   };
   
-  // Prepare data for highest pollution days chart
   const highestPollutionChartData = {
     labels: highestPollutionDays.map(day => day.date),
     datasets: [
@@ -153,11 +154,9 @@ export default function VisualizationDisplay({
     ]
   };
 
-  // Prepare data for heat map style visualization
   const getHeatMapData = () => {
     if (!pollutionData) return null;
     
-    // Group data by month and year
     const groupedData = {};
     
     pollutionData.forEach(record => {
@@ -165,7 +164,7 @@ export default function VisualizationDisplay({
       
       const date = new Date(record.Datetime);
       const year = date.getFullYear();
-      const month = date.getMonth(); // 0-11
+      const month = date.getMonth(); 
       
       const key = `${year}-${month}`;
       if (!groupedData[key]) {
@@ -184,13 +183,11 @@ export default function VisualizationDisplay({
       }
     });
     
-    // Calculate averages
     Object.keys(groupedData).forEach(key => {
       const group = groupedData[key];
       group.average = group.count > 0 ? group.sum / group.count : 0;
     });
     
-    // Transform to array for visualization
     return Object.values(groupedData)
       .filter(item => item.count > 0)
       .map(item => ({
@@ -200,7 +197,6 @@ export default function VisualizationDisplay({
       }));
   };
   
-  // Prepare radar chart data for PM2.5 and PM10 comparison
   const radarChartData = {
     labels: ['Average', 'Maximum', 'Minimum', 'Median', '90th Percentile'],
     datasets: [
@@ -233,17 +229,15 @@ export default function VisualizationDisplay({
     ]
   };
   
-  // Trend line chart
   const getTrendLineData = () => {
     if (!pollutionData) return null;
     
-    // Group data by date and calculate daily averages
     const dailyData = {};
     
     pollutionData.forEach(record => {
       if (!record.Datetime) return;
       
-      const dateStr = record.Datetime.split(' ')[0]; // Get just date part
+      const dateStr = record.Datetime.split(' ')[0]; 
       if (!dailyData[dateStr]) {
         dailyData[dateStr] = {
           date: dateStr,
@@ -261,7 +255,6 @@ export default function VisualizationDisplay({
       dailyData[dateStr].count++;
     });
     
-    // Calculate averages and sort by date
     return Object.values(dailyData)
       .map(day => ({
         date: day.date,
@@ -296,7 +289,6 @@ export default function VisualizationDisplay({
     ]
   };
   
-  // Options for bar chart
   const barOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -346,7 +338,6 @@ export default function VisualizationDisplay({
     }
   };
   
-  // Options for pie chart
   const pieOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -375,7 +366,6 @@ export default function VisualizationDisplay({
     }
   };
   
-  // Options for radar chart
   const radarOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -419,7 +409,6 @@ export default function VisualizationDisplay({
     }
   };
   
-  // Options for line chart
   const lineOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -447,7 +436,6 @@ export default function VisualizationDisplay({
           font: { size: 10 },
           maxTicksLimit: 15,
           callback: function(value, index, values) {
-            // Show fewer labels for better readability
             return index % 5 === 0 ? this.getLabelForValue(value) : '';
           }
         },
@@ -466,7 +454,6 @@ export default function VisualizationDisplay({
     }
   };
   
-  // Helper function to calculate median
   function calculateMedian(data, pollutantType) {
     if (!data || data.length === 0) return 0;
     
@@ -489,7 +476,6 @@ export default function VisualizationDisplay({
       : values[mid];
   }
   
-  // Helper function to calculate percentile
   function calculatePercentile(data, pollutantType, percentile) {
     if (!data || data.length === 0) return 0;
     

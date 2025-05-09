@@ -1,0 +1,24 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+09/14/17,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,17.0,South Coast AQMD
+09/14/17,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,8.0,South Coast AQMD
+09/14/17,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,15.0,South Coast AQMD
+09/14/17,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,4.0,South Coast AQMD
+09/14/17,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,23.0,South Coast AQMD
+09/14/17,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,24.0,South Coast AQMD
+09/14/17,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,20.0,South Coast AQMD
+09/14/17,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,25.0,South Coast AQMD
+09/14/17,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,22.0,South Coast AQMD
+09/14/17,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,32.0,South Coast AQMD
+09/14/17,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,14.0,South Coast AQMD
+09/14/17,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,37.0,South Coast AQMD
+09/14/17,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,13.0,South Coast AQMD
+09/14/17,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,38.0,South Coast AQMD
+09/14/17,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,29.0,South Coast AQMD
+09/14/17,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.1,South Coast AQMD
+09/14/17,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.1,South Coast AQMD
+09/14/17,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,4.1,South Coast AQMD
+09/14/17,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,4.1,South Coast AQMD
+09/14/17,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,6.1,South Coast AQMD
+09/14/17,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.3,South Coast AQMD
+09/14/17,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,9.5,South Coast AQMD
+09/14/17,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,8.1,South Coast AQMD

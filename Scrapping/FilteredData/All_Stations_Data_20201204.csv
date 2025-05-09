@@ -1,0 +1,25 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+12/04/20,08:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,25.0,South Coast AQMD
+12/04/20,08:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,5.0,South Coast AQMD
+12/04/20,09:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,28.0,South Coast AQMD
+12/04/20,09:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,4.0,South Coast AQMD
+12/04/20,10:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,27.0,South Coast AQMD
+12/04/20,10:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,6.0,South Coast AQMD
+12/04/20,11:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,31.0,South Coast AQMD
+12/04/20,11:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,6.0,South Coast AQMD
+12/04/20,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,33.0,South Coast AQMD
+12/04/20,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,7.0,South Coast AQMD
+12/04/20,13:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,34.0,South Coast AQMD
+12/04/20,13:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,8.0,South Coast AQMD
+12/04/20,14:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,46.0,South Coast AQMD
+12/04/20,14:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,8.0,South Coast AQMD
+12/04/20,15:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,55.0,South Coast AQMD
+12/04/20,15:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,13.0,South Coast AQMD
+12/04/20,08:00,060374004,South Long Beach,-8,PM2.5,UG/M3,43.1,South Coast AQMD
+12/04/20,09:00,060374004,South Long Beach,-8,PM2.5,UG/M3,24.9,South Coast AQMD
+12/04/20,10:00,060374004,South Long Beach,-8,PM2.5,UG/M3,23.3,South Coast AQMD
+12/04/20,11:00,060374004,South Long Beach,-8,PM2.5,UG/M3,18.6,South Coast AQMD
+12/04/20,12:00,060374004,South Long Beach,-8,PM2.5,UG/M3,23.6,South Coast AQMD
+12/04/20,13:00,060374004,South Long Beach,-8,PM2.5,UG/M3,21.8,South Coast AQMD
+12/04/20,14:00,060374004,South Long Beach,-8,PM2.5,UG/M3,12.2,South Coast AQMD
+12/04/20,15:00,060374004,South Long Beach,-8,PM2.5,UG/M3,30.2,South Coast AQMD

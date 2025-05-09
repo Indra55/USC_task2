@@ -1,0 +1,5 @@
+Date,Time,SiteCode,Location,Timezone,Parameter,Unit,Value,Agency
+03/20/24,12:00,060371103,Los Angeles - N. Mai,-8,PM10,UG/M3,25.0,South Coast AQMD
+03/20/24,12:00,060371103,Los Angeles - N. Mai,-8,PM2.5,UG/M3,12.4,South Coast AQMD
+03/20/24,12:00,840060374009,Long Beach Signal Hi,-8,PM10,UG/M3,30.0,South Coast AQMD
+03/20/24,12:00,840060374009,Long Beach Signal Hi,-8,PM2.5,UG/M3,23.7,South Coast AQMD

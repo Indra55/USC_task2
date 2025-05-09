@@ -3,7 +3,6 @@ import SchoolSelector from './components/SchoolSelector';
 import YearRangePicker from './components/YearRangePicker';
 import AnalyticsDisplay from './components/AnalyticsDisplay';
 import DarkModeToggle from './components/DarkModeToggle';
-import WeatherCorrelationDisplay from './components/WeatherCorrelationDisplay';
 import YearlyTrendsDisplay from './components/YearlyTrendsDisplay';
 import VisualizationDisplay from './components/VisualizationDisplay';
 import StatsDashboard from './components/StatsDashboard';
@@ -17,7 +16,7 @@ import './App.css';
 
 function App() {
   const [selectedSchool, setSelectedSchool] = useState(null);
-  const [yearRange, setYearRange] = useState({ startYear: 2014, endYear: new Date().getFullYear() });
+  const [yearRange, setYearRange] = useState({ startYear: 2014, endYear: 2024 });
   const [pollutionData, setPollutionData] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [analyticsData, setAnalyticsData] = useState(null);
@@ -25,7 +24,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Load pollution data when component mounts
   useEffect(() => {
     async function fetchData() {
       try {
@@ -45,24 +43,21 @@ function App() {
     fetchData();
   }, []);
 
-  // Handle school selection
   const handleSchoolSelect = useCallback((school) => {
     setSelectedSchool(school);
   }, []);
 
-  // Handle year range changes
   const handleYearRangeChange = useCallback((range) => {
     setYearRange(range);
   }, []);
-
-  // Generate analytics when school or year range changes
+ 
   useEffect(() => {
     if (!selectedSchool || !pollutionData) return;
 
     try {
       setLoading(true);
       
-      // Filter data for the selected school and year range
+       
       const schoolLocation = {
         latitude: parseFloat(selectedSchool.Latitude),
         longitude: parseFloat(selectedSchool.Longitude)
@@ -75,11 +70,11 @@ function App() {
         yearRange.endYear
       );
       
-      // Analyze the filtered data
+       
       const analytics = analyzePollutionData(filteredData);
       setAnalyticsData({
         analytics,
-        filteredData  // Store the filtered data for other components to use
+        filteredData   
       });
       setError(null);
     } catch (err) {
@@ -217,21 +212,6 @@ function App() {
               </li>
               <li className="mr-2">
                 <button
-                  onClick={() => setActiveTab('weather')}
-                  className={`inline-flex items-center p-4 border-b-2 rounded-t-lg ${
-                    activeTab === 'weather'
-                      ? 'text-indigo-600 dark:text-indigo-400 border-indigo-600 dark:border-indigo-400'
-                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300'
-                  }`}
-                >
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-                  </svg>
-                  Weather Correlation
-                </button>
-              </li>
-              <li className="mr-2">
-                <button
                   onClick={() => setActiveTab('trends')}
                   className={`inline-flex items-center p-4 border-b-2 rounded-t-lg ${
                     activeTab === 'trends'
@@ -250,12 +230,13 @@ function App() {
         )}
         
         {/* Analytics Display based on activeTab */}
-        {activeTab === 'pollution' && (
-          <AnalyticsDisplay
-            schoolName={selectedSchool?.School}
-            yearRange={yearRange}
-            analyticsData={analyticsData ? analyticsData.analytics : null}
+        {activeTab === 'pollution' && selectedSchool && analyticsData && (
+          <AnalyticsDisplay 
+            schoolName={selectedSchool.School} 
+            yearRange={yearRange} 
+            analyticsData={analyticsData.analytics}
             loading={loading}
+            selectedSchool={selectedSchool}
           />
         )}
         
@@ -274,16 +255,6 @@ function App() {
             yearRange={yearRange}
             analyticsData={analyticsData ? analyticsData.analytics : null}
             pollutionData={analyticsData ? analyticsData.filteredData : null}
-            loading={loading}
-          />
-        )}
-        
-        {activeTab === 'weather' && selectedSchool && (
-          <WeatherCorrelationDisplay
-            schoolName={selectedSchool?.School}
-            yearRange={yearRange}
-            pollutionData={analyticsData ? analyticsData.filteredData : null}
-            weatherData={weatherData}
             loading={loading}
           />
         )}
